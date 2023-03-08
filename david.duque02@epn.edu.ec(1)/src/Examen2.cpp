@@ -124,6 +124,6 @@ int main()
     // cout << endl;
     // ddnodo *ddArbol = NULL;
     // cout << "TIPO DE BOMBA: a*b+c" << endl;
-    // jqInsertar
-    // jqmostrarArbol(ddArbol,0);
+    // ddInsertar
+    // ddmostrarArbol(ddArbol,0);
  }
