@@ -23,10 +23,10 @@ void ddCoordenadas( string nombreArchivo)
 {
     ifstream archivo(nombreArchivo.c_str());
     string linea;
-    cout << "[+]Coordenadas leidas.....: " << endl;
+    cout << "[+]    Coordenadas leidas.....: " << endl;
        cout << COLOR_RED;
     cout << "     ERROR :   cap,   Geo,   Tipo Arcenal -->stoi" << endl;
-        cout << COLOR_WHITE;
+        cout << COLOR_WHITE;    
     if (archivo.is_open()) 
     {
         while (getline(archivo, linea)) 
@@ -64,111 +64,66 @@ void ddCoordenadas( string nombreArchivo)
 
  }
 
-
-struct nodo{
-     int nro;
-     struct nodo *izq, *der;
-};
-
-typedef struct nodo *ABB;
-
-ABB crearNodo(int x)
+void ddDatos()
 {
-     ABB nuevoNodo = new(struct nodo);
-     nuevoNodo->nro = x;
-     nuevoNodo->izq = NULL;
-     nuevoNodo->der = NULL;
-
-     return nuevoNodo;
-}
-void insertar(ABB &arbol, int x)
-{
-     if(arbol==NULL)
-     {
-           arbol = crearNodo(x);
-     }
-     else if(x < arbol->nro)
-          insertar(arbol->izq, x);
-     else if(x > arbol->nro)
-          insertar(arbol->der, x);
+    cout << COLOR_LBLUE;
+    cout << endl
+         << "[+] Informacion Arbol Binario de capacidad belica Ucrania" << endl
+         << "\tDeveloper-Nombre:"<< ddnombrecompleto << endl
+         << "\tDeveloper-Cedula:" << ddcedula << endl
+         << "\tCapacidad Belica: " << endl
+         << "\tCoordenada-Total: " << endl
+         << "\tCoordenada/SecCarga: 1 7 2 " << endl;
 }
 
-void preOrden(ABB arbol)
-{
-     if(arbol!=NULL)
-     {
-          cout << arbol->nro <<" ";
-          preOrden(arbol->izq);
-          preOrden(arbol->der);
-     }
-}
+// struct ddnodo
+// {
+//     string ddCoordenadas;
+//     ddnodo *izquierda, *derecha;
+// };
 
-void enOrden(ABB arbol)
-{
-     if(arbol!=NULL)
-     {
-          enOrden(arbol->izq);
-          cout << arbol->nro << " ";
-          enOrden(arbol->der);
-     }
-}
+// void ddinsertar(string ddCoordenadas, ddnodo *&ddArbol)
+// {
+//     if (ddArbol == NULL)
+//     {
+//         ddArbol = new ddnodo;
+//         ddArbol -> ddCoordenadas = ddCoordenadas;
+//         ddArbol -> izquierda = NULL;
+//         ddArbol -> derecha = NULL;
+//     }
+//     else if (ddCoordenadas < ddArbol -> ddCoordenadas)
+//     {
+//         ddinsertar(ddCoordenadas, ddArbol->izquierda);
+//     }
+//     else
+//     {
+//         ddinsertar(ddCoordenadas, ddArbol->derecha);
+//     }
+// }
 
-void postOrden(ABB arbol)
-{
-     if(arbol!=NULL)
-     {
-          postOrden(arbol->izq);
-          postOrden(arbol->der);
-          cout << arbol->nro << " ";
-     }
-}
-
-void verArbol(ABB arbol, int n)
-{
-     if(arbol==NULL)
-          return;
-     verArbol(arbol->der, n+1);
-
-     for(int i=0; i<n; i++)
-         cout<<"   ";
-
-     cout<< arbol->nro <<endl;
-
-     verArbol(arbol->izq, n+1);
-}
+// void jqmostrarArbol(ddnodo* ddArbol, int j)
+// {
+//     if (ddArbol == NULL)
+//         return;
+//     jqmostrarArbol(ddArbol->derecha, j + 3);
+//     for (int i = 0; i < j; i++)
+//     {
+//         cout << "   ";
+//     }
+//     cout << ddArbol -> ddCoordenadas << endl;
+//     jqmostrarArbol(ddArbol->izquierda, j + 3);
+// }
 
 
 int main()
  {
     string archivo_cordenadas ="data/cordenadas.txt";
     ddCoordenadas(archivo_cordenadas);
-   
-    // ABB arbol = NULL;   // creado Arbol
-
-    // int n;  // numero de nodos del arbol
-    // int x; // elemento a insertar en cada nodo
-
-    // cout << "\n\t\t  ..[ ARBOL BINARIO DE BUSQUEDA ]..  \n\n";
-
-    // cout << " Numero de nodos del arbol:  ";
-    // cin >> n;
-    // cout << endl;
-
-    // for(int i=0; i<n; i++)
-    // {
-    //     cout << " Numero del nodo " << i+1 << ": ";
-    //     cin >> x;
-    //     insertar( arbol, x);
-    // }
-
-    // cout << "\n Mostrando ABB \n\n";  verArbol( arbol, 0);
-    // cout << "\n Recorridos del ABB";
-    // cout << "\n\n En orden   :  ";   enOrden(arbol);
-    // cout << "\n\n Pre Orden  :  ";   preOrden(arbol);
-    // cout << "\n\n Post Orden :  ";   postOrden(arbol);
-    // cout << endl << endl;
-    // return 0;
     ddinformacion();
-
+    ddDatos();
+    // cout << endl;
+    // ddnodo *ddArbol = NULL;
+    // cout << "TIPO DE BOMBA: a*b+c" << endl;
+    // jqInsertar
+    // jqmostrarArbol(ddArbol,0);
  }
-
